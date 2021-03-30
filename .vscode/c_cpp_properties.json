@@ -17,7 +17,6 @@
             "includePath": [
                 "/var/lib/snapd/snap/arduino/50/hardware/arduino/avr/cores/arduino",
                 "/var/lib/snapd/snap/arduino/50/hardware/arduino/avr/variants/standard",
-                "/home/ilionroot/Arduino/libraries/Servo/src",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/avr/include"
