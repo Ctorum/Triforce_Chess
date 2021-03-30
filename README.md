@@ -5,8 +5,8 @@
 *Contact the programmers:*
 
 ##### *Vitor*
-***Phone:**11986080044*
-***Email:**vhcabralrezende@gmail.com*
+**Phone:11986080044**
+**Email:vhcabralrezende@gmail.com**
 ##### *Igor*
-***Phone:**11998593969*
-***Email:**iguinho220712@gmail.com*
+**Phone:11998593969**
+**Email:iguinho220712@gmail.com**
