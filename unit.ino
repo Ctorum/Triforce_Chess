@@ -43,13 +43,6 @@ void setup()
 
 void loop()
 {
-//   Serial.println("X1 - (1): " + String(digitalRead(C1)));
-//   Serial.println("X2 - (2): " + String(digitalRead(C2)));
-//   Serial.println("X3 - (3): " + String(digitalRead(C3)));
-//   Serial.println("Y1 - (4): " + String(digitalRead(C4)));
-//   Serial.println("Y2 - (5): " + String(digitalRead(C5)));
-//   Serial.println("Y3 - (6): " + String(digitalRead(C6)));
-//   Serial.println("----------------------------------");
   getCooridanates();
   delay(1000);
 }
