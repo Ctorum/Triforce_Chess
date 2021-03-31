@@ -1,7 +1,5 @@
 #include <string.h>
 
-String squares[4] = {"A1", "A2", "B1", "B2"};
-
 #define C1 2
 #define C2 3
 #define C3 4
@@ -13,21 +11,24 @@ int xPos = 0;
 int yPos = 0;
 
 void getCooridanates(){
-    int x[3] = {digitalRead(C1), digitalRead(C2), digitalRead(C3)};
-    int y[3] = {digitalRead(C4), digitalRead(C5), digitalRead(C6)};
-    for (auto &&i : x)
-    {
-        if (i = 1)
+    for (int i = 0; i < 3; i++)
+    { 
+        int i_verification = digitalRead(i);
+        if (i_verification = 1)
         {
-            for (auto &&i : y){
-                if(i = 1){
-                    yPos = i;
+            for (int j = 0; j < 3; j++)
+            {
+                int j_verification = digitalRead(j);
+                if (j_verification = 1)
+                {
+                    yPos = j;
                 }
+                
             }
-            xPos = i;   
+            xPos = i;
         }
     }
-    Serial.printf(String(xPos) + ";" + String(yPos));
+    Serial.println(String(xPos) + ";" + String(yPos));
 }
 
 void setup()
