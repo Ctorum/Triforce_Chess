@@ -11,15 +11,15 @@ int xPos = 0;
 int yPos = 0;
 
 void getCooridanates(){
-    for (int i = 0; i < 3; i++)
+    for (int i = 2; i < 5; i++)
     { 
         int i_verification = digitalRead(i);
-        if (i_verification = 1)
+        if (i_verification == 1)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 5; j < 8; j++)
             {
                 int j_verification = digitalRead(j);
-                if (j_verification = 1)
+                if (j_verification == 1)
                 {
                     yPos = j;
                 }
