@@ -12,12 +12,14 @@
 int xPos = 0;
 int yPos = 0;
 
-void getCooridanates()
+String coordinates[8] = {"1", "2", "3", "4", "A", "B", "C", "D"};
+
+void getCoordinates()
 {
     for (int i = 2; i < 6; i++)
     {
         int i_verification = digitalRead(i);
-        /*Comment here to house analysis
+        //Comment here to house analysis
         if (i_verification == 1)
         {
             for (int j = 6; j < 10; j++)
@@ -25,16 +27,16 @@ void getCooridanates()
                 int j_verification = digitalRead(j);
                 if (j_verification == 1)
                 {
-                    yPos = j;
+                    xPos = j;
                 }
             }
-            xPos = i;
+            yPos = i;
         }
-        Finish coment here*/
-        Serial.println(i + ": " + i_verification);
+        //Finish coment here
+        //Serial.println(i + ": " + i_verification);
     }
-    //Serial.println(String(xPos) + ";" + String(yPos));
-    Serial.println("-----------------------------");
+    Serial.println(String(coordinates[xPos - 2]) + String(coordinates[yPos - 2]));
+    //Serial.println("-----------------------------");
 }
 
 void setup()
@@ -52,6 +54,6 @@ void setup()
 
 void loop()
 {
-    getCooridanates();
+    getCoordinates();
     delay(1000);
 }
