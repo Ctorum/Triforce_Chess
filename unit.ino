@@ -1,7 +1,5 @@
 #include <string.h>
 
-String squares[4] = {"A1", "A2", "B1", "B2"};
-
 #define C1 2
 #define C2 3
 #define C3 4
@@ -14,17 +12,17 @@ int yPos = 0;
 
 void getCooridanates()
 {
-    int x[3] = {digitalRead(C1), digitalRead(C2), digitalRead(C3)};
-    int y[3] = {digitalRead(C4), digitalRead(C5), digitalRead(C6)};
-    for (auto &&i : x)
+    for (int i = 2; i < 5; i++)
     {
-        if (i = 1)
+        int i_verification = digitalRead(i);
+        if (i_verification == 1)
         {
-            for (auto &&i : y)
+            for (int j = 5; j < 8; j++)
             {
-                if (i = 1)
+                int j_verification = digitalRead(j);
+                if (j_verification == 1)
                 {
-                    yPos = i;
+                    yPos = j;
                 }
             }
             xPos = i;
