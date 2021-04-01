@@ -12,37 +12,40 @@ String squares[4] = {"A1", "A2", "B1", "B2"};
 int xPos = 0;
 int yPos = 0;
 
-void getCooridanates(){
+void getCooridanates()
+{
     int x[3] = {digitalRead(C1), digitalRead(C2), digitalRead(C3)};
     int y[3] = {digitalRead(C4), digitalRead(C5), digitalRead(C6)};
     for (auto &&i : x)
     {
         if (i = 1)
         {
-            for (auto &&i : y){
-                if(i = 1){
+            for (auto &&i : y)
+            {
+                if (i = 1)
+                {
                     yPos = i;
                 }
             }
-            xPos = i;   
+            xPos = i;
         }
     }
-    Serial.printf(String(xPos) + ";" + String(yPos));
+    Serial.println(String(xPos) + ";" + String(yPos));
 }
 
 void setup()
 {
-  Serial.begin(115200);
-  pinMode(C1, INPUT);
-  pinMode(C2, INPUT);
-  pinMode(C3, INPUT);
-  pinMode(C4, INPUT);
-  pinMode(C5, INPUT);
-  pinMode(C6, INPUT);
+    Serial.begin(115200);
+    pinMode(C1, INPUT);
+    pinMode(C2, INPUT);
+    pinMode(C3, INPUT);
+    pinMode(C4, INPUT);
+    pinMode(C5, INPUT);
+    pinMode(C6, INPUT);
 }
 
 void loop()
 {
-  getCooridanates();
-  delay(1000);
+    getCooridanates();
+    delay(1000);
 }
