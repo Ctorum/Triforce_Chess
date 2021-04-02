@@ -12,31 +12,46 @@
 int xPos = 0;
 int yPos = 0;
 
+int xPosAux = 0;
+int yPosAux = 0;
+
 String coordinates[8] = {"1", "2", "3", "4", "A", "B", "C", "D"};
 
 void getCoordinates()
 {
-    for (int i = 2; i < 6; i++)
+    for (int i = 0; i < 64; i++)
     {
-        int i_verification = digitalRead(i);
-        //Comment here to house analysis
-        if (i_verification == 1)
+        for (int i = 2; i < 6; i++)
         {
-            for (int j = 6; j < 10; j++)
+            int i_verification = digitalRead(i);
+            //Comment here to house analysis
+            if (i_verification == 1)
             {
-                int j_verification = digitalRead(j);
-                if (j_verification == 1)
+                for (int j = 6; j < 10; j++)
                 {
-                    xPos = j;
+                    int j_verification = digitalRead(j);
+                    if (j_verification == 1)
+                    {
+                        xPos = j;
+                        xPosAux = xPos;
+                    }
                 }
+                yPos = i;
+                yPosAux = yPos;
             }
-            yPos = i;
+            //Finish coment here
+            //Serial.println(i + ": " + i_verification)
         }
-        //Finish coment here
-        //Serial.println(i + ": " + i_verification);
+
+
+
+        if (xPos != yPosAux || yPos != yPosAux) {
+            Serial.println(String(coordinates[xPos - 2]) + String(coordinates[yPos - 2]));
+        }
     }
-    Serial.println(String(coordinates[xPos - 2]) + String(coordinates[yPos - 2]));
-    //Serial.println("-----------------------------");
+
+    Serial.println("--------------------------------");
+    
 }
 
 void setup()
