@@ -1,5 +1,6 @@
 #include <string.h>
 
+#define ARRAY_MAX 40
 #define C1 2
 #define C2 3
 #define C3 4
@@ -16,44 +17,48 @@ int xPosAux = 0;
 int yPosAux = 0;
 
 String coordinates[8] = {"1", "2", "3", "4", "A", "B", "C", "D"};
+String movesX[] = {};
+String movesY[] = {};
+unsigned int plays = 1;
+unsigned int movesX_length = 0;
+unsigned int movesY_length = 0;
 
 void getCoordinates()
 {
-    for (int i = 0; i < 64; i++)
+    do
     {
-        for (int i = 2; i < 6; i++)
+        for (int i = 0; i < 64; i++)
         {
-            int i_verification = digitalRead(i);
-            //Comment here to house analysis
-            if (i_verification == 1)
+            xPosAux = xPos;
+            yPosAux = yPos;
+            for (int i = 2; i < 6; i++)
             {
-                for (int j = 6; j < 10; j++)
+                int i_verification = digitalRead(i);
+                //Comment here to house analysis
+                if (i_verification == 1)
                 {
-                    int j_verification = digitalRead(j);
-                    if (j_verification == 1)
+                    for (int j = 6; j < 10; j++)
                     {
-                        xPos = j;
-                        xPosAux = xPos;
+                        int j_verification = digitalRead(j);
+                        if (j_verification == 1)
+                        {
+                            xPos = j;
+                        }
                     }
+                    yPos = i;
                 }
-                yPos = i;
-                yPosAux = yPos;
+                //Finish coment here
+                //Serial.println(i + ": " + i_verification)
             }
-            //Finish coment here
-            //Serial.println(i + ": " + i_verification)
+
+            if (xPos != xPosAux || yPos != yPosAux)
+            {
+                Serial.println(movesX[movesX_length] + movesY[movesY_length]);
+            }
         }
-
-
-
-        if (xPos != yPosAux || yPos != yPosAux) {
-            Serial.println(String(coordinates[xPos - 2]) + String(coordinates[yPos - 2]));
-        }
-    }
-
-    Serial.println("--------------------------------");
-    
+        plays++;
+    } while (plays <= ARRAY_MAX);
 }
-
 void setup()
 {
     Serial.begin(115200);
