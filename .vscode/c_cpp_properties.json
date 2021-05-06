@@ -16,7 +16,7 @@
             "intelliSenseMode": "gcc-x64",
             "includePath": [
                 "/var/lib/snapd/snap/arduino/50/hardware/arduino/avr/cores/arduino",
-                "/var/lib/snapd/snap/arduino/50/hardware/arduino/avr/variants/standard",
+                "/var/lib/snapd/snap/arduino/50/hardware/arduino/avr/variants/mega",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
                 "/var/lib/snapd/snap/arduino/50/hardware/tools/avr/avr/include"
@@ -29,7 +29,7 @@
             "defines": [
                 "F_CPU=16000000L",
                 "ARDUINO=10813",
-                "ARDUINO_AVR_UNO",
+                "ARDUINO_AVR_MEGA2560",
                 "ARDUINO_ARCH_AVR",
                 "__DBL_MIN_EXP__=(-125)",
                 "__HQ_FBIT__=15",
@@ -528,7 +528,8 @@
                 "__cpp_init_captures=201304",
                 "__ATOMIC_ACQ_REL=4",
                 "__ATOMIC_RELEASE=3",
-                "__BUILTIN_AVR_FMUL=1"
+                "__BUILTIN_AVR_FMUL=1",
+                "USBCON"
             ]
         }
     ]
