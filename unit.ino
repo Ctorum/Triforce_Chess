@@ -1,3 +1,4 @@
+#include "create_board.h"
 #define boardWidth 4
 
 int powerPins[4] = {50,51,52,53};
@@ -70,6 +71,7 @@ void readHouses() {
 }
 
 void loop() {
+  CreateBoard board("vito", "vitão");
   readHouses();
   delay(2500);
 }
