@@ -30,27 +30,24 @@ PGN notation template
   n. [W]a0= [B]h0= - Promotion Template
 */
 
-class PGN
-{
-public:
-  String match, RAM_match, plays, event, date, white, black, result;
+class PGN {
+  public:
+    String match, RAM_match, plays, event, date, white, black, result;
   PGN(String e, String d, String w, String b, String r);
   ~PGN();
 
-  String getPGN()
-  {
+  String getPGN() {
     return match;
   }
 
-  String setPGN(String p){
+  String setPGN(String p) {
     plays = p + " ";
     match = RAM_match + plays;
     RAM_match = match;
   }
 };
 
-PGN::PGN(String e, String d, String w, String b, String r)
-{
+PGN::PGN(String e, String d, String w, String b, String r) {
   event = e;
   date = d;
   white = w;
@@ -60,9 +57,6 @@ PGN::PGN(String e, String d, String w, String b, String r)
   RAM_match = match;
 }
 
-PGN::~PGN()
-{
-}
-
+PGN::~PGN() {}
 
 #endif
