@@ -5,7 +5,7 @@
 *Contact the programmers:*
 
 #### *Vitor*
-**Email:vhcabralrezende@gmail.com**
+**Email:dev.rezendevitor@gmail.com**
 #### *Igor*
 **Email:iguinho220712@gmail.com**
 
