@@ -1,12 +1,16 @@
 #include "board.h"
 
-#define boardWidth 4
+#define boardWidth 16
 
-int powerPins[4] = {
+int powerPins[8] = {
   50,
   51,
   52,
-  53
+  53,
+  54, 
+  55, 
+  56, 
+  57
 };
 
 String positions[boardWidth * boardWidth];
