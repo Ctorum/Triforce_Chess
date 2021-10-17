@@ -53,7 +53,7 @@ PGN::PGN(String e, String d, String w, String b, String r) {
   white = w;
   black = b;
   result = r;
-  match = "[Event \"%s\"]\n[Date \"%s\"]\n[White \"%s\"]\n[Black \"%s\"]\n[Result \"%s\"]\n", e, d, w, b, r;
+  match = "[Event \"%s\"]\n[Date \"%s\"]\n[White \"%s\"]\n[Black \"%s\"]\n[Result \"%s\"]\n", e || "Undefined", d || "01/01/0101", w || "White", b || "Black", r || "*";
   RAM_match = match;
 }
 

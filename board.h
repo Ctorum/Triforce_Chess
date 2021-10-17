@@ -21,9 +21,9 @@ class Board {
   void check_b() {
     for (unsigned int i = 8; i < 16; i++) {
       if (coordinates[i] == "B%d", i) {
-        true_check_b[i] = 1;
+        true_check_b[i-8] = 1;
       } else {
-        true_check_b[i] = 0;
+        true_check_b[i-8] = 0;
       }
     }
   }
@@ -31,9 +31,9 @@ class Board {
   void check_g() {
     for (unsigned int i = 16; i < 24; i++) {
       if (coordinates[i] == "G%d", i) {
-        true_check_g[i] = 1;
+        true_check_g[i-16] = 1;
       } else {
-        true_check_g[i] = 0;
+        true_check_g[i-16] = 0;
       }
     }
   }
@@ -41,9 +41,9 @@ class Board {
   void check_h() {
     for (unsigned int i = 24; i < 32; i++) {
       if (coordinates[i] == "H%d", i) {
-        true_check_h[i] = 1;
+        true_check_h[i-24] = 1;
       } else {
-        true_check_h[i] = 0;
+        true_check_h[i-24] = 0;
       }
     }
   }
