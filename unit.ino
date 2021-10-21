@@ -1,24 +1,17 @@
 #include "board.h"
+#include <ArduinoJson.h>
 
-#define boardWidth 16
+#define boardWidth 8
 
-int powerPins[16] = {
-  37,
-  38,
-  39,
-  40,
-  41,
-  42,
-  43,
-  44,
-  45,
-  46, 
-  47, 
-  48, 
-  49, 
-  50,
-  51,
-  52
+int powerPins[8] = {
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35
 };
 
 String positions[boardWidth * boardWidth];
@@ -44,6 +37,18 @@ String numberPositions[8] = {
   "8"
 };
 
+void sendJson() {
+  StaticJsonDocument<32> doc;
+
+  doc["before"] = "a2";
+  doc["after"] = "a4";
+
+  String json;
+
+  serializeJson(doc, json);
+  Serial.println(json);
+}
+
 void setup() {
   Serial.begin(115200);
   for (int x: powerPins) {
@@ -51,7 +56,7 @@ void setup() {
     digitalWrite(x, LOW);
   }
 
-  for (int i = 30; i < 38; i++) {
+  for (int i = 36; i < 52; i++) {
     pinMode(i, INPUT);
   }
 }
@@ -61,11 +66,32 @@ void readHouses() {
     positions[i] = "";
   }
 
-  int horizontalInitializer = 34;
-  int verticalInitializer = 30;
+  int horizontalInitializer = 44;
+  int verticalInitializer = 36;
 
   for (int x: powerPins) {
     digitalWrite(x, HIGH);
+
+//    for (int a = 0; a < boardWidth; a++) {
+//      if (digitalRead(verticalInitializer + a) == HIGH) {
+//        int horizontalStates[boardWidth];
+//
+//        for (int b = 0; b < boardWidth; b++) {
+//          horizontalStates[b] = digitalRead(horizontalInitializer + a);
+//        }
+//
+//        for (int c = 0; c < boardWidth; c++) {
+//          if (horizontalStates[c] == HIGH) {
+//            for (int d = 0; d < sizeof(positions) / sizeof(positions[0]); d++) {
+//              if (positions[d] == '\0') {
+//                positions[d] = String(letterPositions[c] + numberPositions[a]);
+//                break;
+//              }
+//            }
+//          }
+//        }
+//      }
+//    }
 
     for (int y = 0; y < boardWidth; y++) {
       if (digitalRead(verticalInitializer + y) == HIGH) {
@@ -83,8 +109,8 @@ void readHouses() {
         for (int e = 0; e < boardWidth; e++) {
           if (horizontalState[e] == 1) {
             for (int p = 0; p < sizeof(positions) / sizeof(positions[0]); p++) {
-              if (positions[p] == NULL) {
-                positions[p] = String(letterPositions[y] + numberPositions[y]);
+              if (positions[p] == '\0') {
+                positions[p] = String(letterPositions[e] + numberPositions[y]);
                 break;
               }
             }
@@ -92,6 +118,32 @@ void readHouses() {
         }
       }
     }
+
+    // for (int y = 0; y < boardWidth; y++) {
+    //   if (digitalRead(verticalInitializer + y) == HIGH) {
+    //     int horizontalState[boardWidth];
+
+    //     for (int j = 0; j < boardWidth; j++) {
+    //       int state = digitalRead(horizontalInitializer + j);
+    //       if (state == HIGH) {
+    //         horizontalState[j] = 1;
+    //       } else {
+    //         horizontalState[j] = 0;
+    //       }
+    //     }
+
+    //     for (int e = 0; e < boardWidth; e++) {
+    //       if (horizontalState[e] == 1) {
+    //         for (int p = 0; p < sizeof(positions) / sizeof(positions[0]); p++) {
+    //           if (positions[p] == '\0') {
+    //             positions[p] = String(letterPositions[y] + numberPositions[e]);
+    //             break;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
 
     digitalWrite(x, LOW);
   }
@@ -102,11 +154,12 @@ void readHouses() {
     }
   }
 
-  //  Serial.println(positions[0]);
+//    Serial.println(positions[0]);
 }
 
 void loop() {
   Board board(positions);
   readHouses();
-  delay(2500);
+//  sendJson();
+  delay(1000);
 }
